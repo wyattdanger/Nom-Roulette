@@ -10,8 +10,15 @@ task 'build' do
 
   if system("frank export --production #{ target }")
     FileUtils.rm_rf backup
-    system("yuicompressor --type css www/stylesheets/site.css -o www/stylesheets/site.css")
-    puts "Compressed www/css/style.css"
+
+    css = "www/stylesheets/site.css"
+    js  = "www/javascripts/app.js"
+
+    system("yuicompressor --type css #{ css } -o #{ css }")
+    puts "Compressed #{ css }"
+
+    system("yuicompressor --type js #{ js } -o #{ js }")
+    puts "Compressed #{ js }"
   end
 end
 
