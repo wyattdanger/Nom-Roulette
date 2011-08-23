@@ -3,7 +3,14 @@ $ ->
   if ! navigator.geolocation 
     alert 'fuck'
 
-  class Map
+  class Noms
+
+    phrases = [
+        "Nom on some \#{ this.Title }, buddy!"
+      , "Put some \#{ this.Title } in your face."
+      , "Fucking \#{ this.Title }, bro."
+    ]
+
     constructor: ->
       @text = ($ '#text')
       @getLocation()
@@ -19,7 +26,7 @@ $ ->
     selectRandom: ( data ) ->
       data[ Math.floor(Math.random(data.total)*data.length)]
 
-    `Map.prototype.template = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
+    `Noms.prototype.template = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
 
     setupClient: =>
       @text.text "Finding a place to eat..."
@@ -28,18 +35,21 @@ $ ->
 
       window.callbackHandler = callbackhandler = ( data, code ) ->
         console.log data, code
-        map.draw data?.query?.results?.Result
+        nom.draw data?.query?.results?.Result
 
       @search()
 
     search: ->
       $.getJSON "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20local.search%20where%20latitude%3D'#{ @lat }'%20and%20longitude%3D'#{ @lng }'%20and%20query%3D'restaurant'&format=json&diagnostics=true", callbackHandler
 
+    headline: ( obj ) ->
+      t = @template @selectRandom(phrases)
+      console.log t, obj
+      nom.text.text(t obj)
+
     draw: ( data ) =>
       choice = @selectRandom data
-      map.text.text "eat at #{ choice.Title }"
-      console.log choice
-      console.log "draw"
+      @headline( choice )
 
-  map = new Map
+  nom = new Noms
 
