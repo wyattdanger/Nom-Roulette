@@ -17,6 +17,7 @@ $ ->
 
     constructor: ->
       @text = ($ '#text')
+      @infoBox = ($ "#infoBox")
       @getLocation()
 
     getLocation: =>
@@ -42,9 +43,15 @@ $ ->
     search: ->
       $.getJSON "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20local.search%20where%20latitude%3D'#{ @lat }'%20and%20longitude%3D'#{ @lng }'%20and%20query%3D'restaurant'&format=json&diagnostics=true", callbackHandler
 
+    info: ( obj ) ->
+      console.log obj
+      t = @template ($ '#info').text()
+      nom.infoBox.html(t obj)
+
     headline: ( obj ) ->
       t = @template @selectRandom(phrases)
       nom.text.text(t obj)
+      @info obj
 
     draw: ( data ) =>
       choice = @selectRandom data

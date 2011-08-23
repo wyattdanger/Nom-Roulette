@@ -3,6 +3,17 @@
   %hr/
   %h4#text
   %hr/
+  #infoBox
+  %hr
   %p Revision #{ %x[git rev-parse HEAD] }
   - unless Frank.exporting?
     %p Size #{ %x[du -sk www.zip] }
+  %script{:type => 'template', :id => "info"}
+    %ul
+      %li 
+        %strong \#{ this.Title }
+      %li \#{ this.Address }
+      %li \#{ this.Phone }
+      %li 
+        %a{:href => "\#{ this.BusinessUrl }"}
+          Website
