@@ -4,4 +4,5 @@
   %h4#text
   %hr/
   %p Revision #{ %x[git rev-parse HEAD] }
-  %p Size #{ %x[du www] }
+  - unless Frank.exporting?
+    %p Size #{ %x[du www] }
