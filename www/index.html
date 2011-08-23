@@ -27,18 +27,29 @@
         <h2 id='text'></h2>
         <hr />
         <div id='infoBox'></div>
+      </div>
+      <div class='four columns'>
+        &nbsp;
+      </div>
+      <div class='eight columns'>
+        <div id='map'></div>
+      </div>
+      <div class='four columns'>
+        &nbsp;
+      </div>
+      <div class='sixteen columns'>
         <hr />
-        <p>Revision 88cf88b2763f26e93e7f1a4d6b6845a6aba8b82d</p>
+        <p>Revision 7134d9cc8477eccdf6a244fdc4b3c35e32abf7ff</p>
         <script id='info' type='template'>
           <ul>
             <li>
-              <strong>#{ this.Title }</strong>
+              <strong>#{ this.name }</strong>
             </li>
-            <li>#{ this.Address }</li>
-            <li>#{ this.Phone }</li>
+            <li>#{ this.formatted_address }</li>
+            <li>#{ this.formatted_phone_number }</li>
             <li>
-              <a href='#{ this.BusinessUrl }'>
-                Website
+              <a href='#{ this.url }'>
+                Place Page
               </a>
             </li>
           </ul>
@@ -47,6 +58,8 @@
     </div>
     
     <script src='//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
-    <script src='javascripts/app.js'></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
   </body>
 </html>
