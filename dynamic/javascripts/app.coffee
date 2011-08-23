@@ -1,7 +1,7 @@
 $ ->
 
   if ! navigator.geolocation 
-    alert 'fuck'
+    alert 'bro you need geolocation'
 
   class Noms
 
@@ -29,22 +29,23 @@ $ ->
     selectRandom: ( data ) ->
       data[ Math.floor(Math.random(data.total)*data.length)]
 
-    `Noms.prototype.template = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
+    template: 
+      `function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
 
-    setupClient: =>
-      @text.html @text.text() + "<br/>Finding a place to eat..."
+    callbackHandler: ( data, code ) ->
+      nom.draw data?.query?.results?.Result
 
-
-      window.callbackHandler = callbackhandler = ( data, code ) ->
-        nom.draw data?.query?.results?.Result
-
-      @search()
+    setupClient: ->
+      setTimeout =>
+        @text.html @text.text() + "<br/>Finding a place to eat..."
+        window.callbackHandler = @callbackHandler
+        @search()
+      , 1000
 
     search: ->
       $.getJSON "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20local.search%20where%20latitude%3D'#{ @lat }'%20and%20longitude%3D'#{ @lng }'%20and%20query%3D'restaurant'&format=json&diagnostics=true", callbackHandler
 
     info: ( obj ) ->
-      console.log obj
       t = @template ($ '#info').text()
       nom.infoBox.html(t obj)
 
