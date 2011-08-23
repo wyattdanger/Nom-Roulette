@@ -7,12 +7,12 @@ $ ->
 
     phrases = [
         "Nom on some \#{ this.Title }, buddy!"
-      , "Nom on some \#{ this.Title }, pal."
-      , "Nom on some \#{ this.Title }, champ!"
-      , "Nom on some \#{ this.Title }, killer!"
-      , "Put some \#{ this.Title } in your face."
-      , "Mothereffing \#{ this.Title }, bro."
-      , "\#{ this.Title }, \#{ this.Title }, \#{ this.Title }!"
+      , "Break bread at \#{ this.Title }, pal."
+      , "Chow down at \#{ this.Title }, champ!"
+      , "Put away some \#{ this.Title }, killer!"
+      , "Cram some \#{ this.Title } in your face."
+      , "Demolish some \#{ this.Title }, bro."
+      , "Gobble up some \#{ this.Title }, turkey."
     ]
 
     constructor: ->
