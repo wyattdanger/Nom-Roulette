@@ -2,10 +2,11 @@
   %h1.remove-bottom{:style => "margin-top: 40px"} Nom Roulette
   %hr/
   %h2#text
+    &nbsp;
   %hr/
+.four.columns.left
   #infoBox
-.four.columns
-  &nbsp;
+    &nbsp;
 .eight.columns
   #map
 .four.columns
@@ -22,5 +23,5 @@
       %li \#{ this.formatted_address }
       %li \#{ this.formatted_phone_number }
       %li 
-        %a{:href => "\#{ this.url }"}
+        %a.button{:href => "\#{ this.url }"}
           Place Page

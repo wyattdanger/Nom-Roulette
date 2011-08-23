@@ -17,7 +17,7 @@ $ ->
 
     constructor: ->
       mapOpts =
-        zoom: 11
+        zoom: 16
         mapTypeId: google.maps.MapTypeId.ROADMAP
       @map = new google.maps.Map( document.getElementById('map'), mapOpts )
       @service = new google.maps.places.PlacesService @map
@@ -30,11 +30,6 @@ $ ->
       navigator.geolocation.getCurrentPosition ( pos ) =>
         [@lat, @lng] = [pos.coords.latitude, pos.coords.longitude]
         @location = new google.maps.LatLng @lat, @lng
-        @map.setCenter @location
-        @user = new google.maps.Marker
-          visible: true
-          map: @map
-          position: @location
         @setupClient()
 
     selectRandom: ( data ) ->
@@ -53,10 +48,11 @@ $ ->
         visible: true
         map: @map
         position: info.geometry.location
+      @map.setCenter info.geometry.location
 
     setupClient: ->
       setTimeout =>
-        @text.html @text.text() + "<br/>Finding a place to eat..."
+        @text.html "Finding a place to eat..."
         window.searchCallbackHandler = @searchCallbackHandler
         @search()
       , 1000
