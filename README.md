@@ -1,7 +1,3 @@
-# Skeleton for Frank
+#WTF TO EAT
 
-Brings [Skeleton](http://www.getskeleton.com/) to [Frank](https://github.com/blahed/frank).
-
-## Intallation
-
-Clone this into your `~/.frank_templates` directory.
+to build out your changes into the `www` directory, `rake build`
