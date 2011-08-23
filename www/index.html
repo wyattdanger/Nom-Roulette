@@ -48,7 +48,23 @@
         <hr />
         <h4 id='text'></h4>
         <hr />
-        <p>Revision 922b52d873cfa6b9255d7c8c5267f38d23fa0aaf</p>
+        <div id='infoBox'></div>
+        <hr />
+        <p>Revision d63b431432c982f041d59b593c271022135d12a0</p>
+        <script id='info' type='template'>
+          <ul>
+            <li>
+              <strong>#{ this.Title }</strong>
+            </li>
+            <li>#{ this.Address }</li>
+            <li>#{ this.Phone }</li>
+            <li>
+              <a href='#{ this.BusinessUrl }'>
+                Website
+              </a>
+            </li>
+          </ul>
+        </script>
       </div>
     </div>
     
