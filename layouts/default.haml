@@ -22,4 +22,7 @@
       = yield
     = refresh
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"}
-    %script{:src => "javascripts/app.js"}
+    :plain
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+      <script type="text/javascript" src="/javascripts/app.js"></script>

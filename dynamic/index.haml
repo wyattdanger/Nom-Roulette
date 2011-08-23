@@ -4,6 +4,13 @@
   %h2#text
   %hr/
   #infoBox
+.four.columns
+  &nbsp;
+.eight.columns
+  #map
+.four.columns
+  &nbsp;
+.sixteen.columns
   %hr
   %p Revision #{ %x[git rev-parse HEAD] }
   - unless Frank.exporting?
@@ -11,9 +18,9 @@
   %script{:type => 'template', :id => "info"}
     %ul
       %li 
-        %strong \#{ this.Title }
-      %li \#{ this.Address }
-      %li \#{ this.Phone }
+        %strong \#{ this.name }
+      %li \#{ this.formatted_address }
+      %li \#{ this.formatted_phone_number }
       %li 
-        %a{:href => "\#{ this.BusinessUrl }"}
-          Website
+        %a{:href => "\#{ this.url }"}
+          Place Page
