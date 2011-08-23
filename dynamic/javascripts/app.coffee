@@ -32,7 +32,7 @@ $ ->
     `Noms.prototype.template = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
 
     setupClient: =>
-      @text.text "Finding a place to eat..."
+      @text.html @text.text() + "<br/>Finding a place to eat..."
 
 
       window.callbackHandler = callbackhandler = ( data, code ) ->
