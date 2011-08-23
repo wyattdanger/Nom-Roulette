@@ -19,6 +19,8 @@ $ ->
     selectRandom: ( data ) ->
       data[ Math.floor(Math.random(data.total)*data.length)]
 
+    `Map.prototype.template = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
+
     setupClient: =>
       @text.text "Finding a place to eat..."
       console.log 'setupClient'
