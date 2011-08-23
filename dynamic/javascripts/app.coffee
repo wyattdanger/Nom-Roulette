@@ -6,13 +6,13 @@ $ ->
   class Noms
 
     phrases = [
-        "Nom on some <em>\#{ this.name }</em>, buddy!"
-      , "Break bread at <em>\#{ this.name }</em>, pal."
-      , "Chow down at <em>\#{ this.name }</em>, champ!"
-      , "Put away some <em>\#{ this.name }</em>, killer!"
-      , "Cram some <em>\#{ this.name }</em> in your face."
-      , "Demolish some <em>\#{ this.name }</em>, bro."
-      , "Gobble up some <em>\#{ this.name }</em>, turkey."
+        "Nom on some <a>\#{ this.name }</a>, buddy!"
+      , "Break bread at <a>\#{ this.name }</a>, pal."
+      , "Chow down at <a>\#{ this.name }</a>, champ!"
+      , "Put away some <a>\#{ this.name }</a>, killer!"
+      , "Cram some <a>\#{ this.name }</a> in your face."
+      , "Demolish some <a>\#{ this.name }</a>, bro."
+      , "Gobble up some <a>\#{ this.name }</a>, turkey."
     ]
 
     constructor: ->
@@ -67,6 +67,7 @@ $ ->
     info: ( obj ) ->
       t = @template ($ '#info').text()
       nom.infoBox.html(t obj)
+      nom.text.find('a').attr('href', obj.url )
 
     headline: ( obj ) ->
       console.log obj
