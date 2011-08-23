@@ -1,0 +1,52 @@
+!!!
+/[if lt IE 7 ] <html class="ie ie6" lang="en">
+/[if IE 7 ] <html class="ie ie7" lang="en">
+/[if IE 8 ] <html class="ie ie8" lang="en">
+/ [if (gte IE 9)|!(IE)]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    /
+      Basic Page Needs
+      \==================================================
+    %meta{:charset => "utf-8"}/
+    %title WTF to eat
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    /
+      Mobile Specific Metas
+      \==================================================
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    /
+      CSS
+      \==================================================
+    %link{:href => "stylesheets/site.css", :rel => "stylesheet"}/
+    /
+      Favicons
+      \==================================================
+    %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
+    %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+  %body
+    /
+      Primary Page Layout
+      \==================================================
+    / Delete everything in this .container and get started on your own site!
+    .container
+      = yield
+    = refresh
+    / container
+    /
+      JS
+      \==================================================
+    %script{:src => "http://maps.google.com/maps/api/js?sensor=false"}
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"}
+    %script{:src => "javascripts/tabs.js"}
+    %script{:src => "http://cdn.simplegeo.com/js/1.3/simplegeo.all.jq.min.js"}
+    %script{:src => "javascripts/app.js"}
+    /
+      End Document
+      \==================================================
