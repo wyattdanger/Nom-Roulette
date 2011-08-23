@@ -21,10 +21,8 @@ $ ->
 
     getLocation: =>
       @text.text "Finding your location..."
-      console.log 'getLocation'
       navigator.geolocation.getCurrentPosition ( pos ) =>
         [@lat, @lng] = [pos.coords.latitude, pos.coords.longitude]
-        console.log @lat, @lng
         @setupClient()
 
     selectRandom: ( data ) ->
@@ -34,11 +32,9 @@ $ ->
 
     setupClient: =>
       @text.text "Finding a place to eat..."
-      console.log 'setupClient'
 
 
       window.callbackHandler = callbackhandler = ( data, code ) ->
-        console.log data, code
         nom.draw data?.query?.results?.Result
 
       @search()
@@ -48,7 +44,6 @@ $ ->
 
     headline: ( obj ) ->
       t = @template @selectRandom(phrases)
-      console.log t, obj
       nom.text.text(t obj)
 
     draw: ( data ) =>
