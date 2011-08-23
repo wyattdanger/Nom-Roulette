@@ -19,6 +19,10 @@ task 'build' do
 
     system("yuicompressor --type js #{ js } -o #{ js }")
     puts "Compressed #{ js }"
+
+    puts "Zipping www"
+    system('rm -rf www.zip')
+    system('zip -r www www')
   end
 end
 
