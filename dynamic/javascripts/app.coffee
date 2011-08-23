@@ -3,8 +3,6 @@ $ ->
   if ! navigator.geolocation 
     alert 'fuck'
 
-  puts = console.log
-
   class Map
     constructor: ->
       @text = ($ '#text')
@@ -15,28 +13,31 @@ $ ->
       console.log 'getLocation'
       navigator.geolocation.getCurrentPosition ( pos ) =>
         [@lat, @lng] = [pos.coords.latitude, pos.coords.longitude]
+        console.log @lat, @lng
         @setupClient()
+
+    selectRandom: ( data ) ->
+      data[ Math.floor(Math.random(data.total)*data.length)]
 
     setupClient: =>
       @text.text "Finding a place to eat..."
       console.log 'setupClient'
-      @client = new simplegeo.PlacesClient 'JACRMaRvrLkB2xfymFcdqec8myfWuNcE'
 
-      selectRandom = ( data ) ->
-        data.features[ Math.floor(Math.random(data.total)*26)]
 
-      window.callbackHandler = callbackhandler = ( err, data ) ->
-        choice = selectRandom data
-        map.text.text "eat at #{ choice.properties.name }"
-        console.log choice
-        map.draw choice.properties
+      window.callbackHandler = callbackhandler = ( data, code ) ->
+        console.log data, code
+        map.draw data?.query?.results?.Result
 
-      @client.search @lat, @lng, { category: "food" }, callbackHandler
+      @search()
 
-    draw: =>
+    search: ->
+      $.getJSON "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20local.search%20where%20latitude%3D'#{ @lat }'%20and%20longitude%3D'#{ @lng }'%20and%20query%3D'restaurant'&format=json&diagnostics=true", callbackHandler
+
+    draw: ( data ) =>
+      choice = @selectRandom data
+      map.text.text "eat at #{ choice.Title }"
+      console.log choice
       console.log "draw"
-
-
 
   map = new Map
 
