@@ -60,7 +60,7 @@ $ ->
     search: ->
       @service.search
         location: @location
-        radius: 1600
+        radius: 3200
         types: ['restaurant', 'food', 'bar']
         , searchCallbackHandler
 

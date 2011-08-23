@@ -4,18 +4,20 @@
   %h2#text
     &nbsp;
   %hr/
+.two.columns
+  &nbsp;
 .four.columns.left
   #infoBox
     &nbsp;
 .eight.columns
   #map
-.four.columns
+.two.columns
   &nbsp;
 .sixteen.columns
   %hr
-  %p Revision #{ %x[git rev-parse HEAD] }
-  - unless Frank.exporting?
-    %p Size #{ %x[du -sk www.zip] }
+%footer.sixteen.columns
+  :markdown
+     Made by [Stephen](http://twitter.com/wyattdanger) and [Aaron](http://twitter.com/aaronrobbs) for [10K Apart](http://10k.aneventapart.com/)
   %script{:type => 'template', :id => "info"}
     %ul
       %li 
