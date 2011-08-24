@@ -124,6 +124,8 @@ $ ->
 
 
     draw: ( data ) =>
+      if ! data.length
+        return textBox.html "Looks like you&rsquo;re in the middle of nowhere, buddy!"
       choice = @selectRandom data
       @headline( choice )
 
