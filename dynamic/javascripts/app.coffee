@@ -7,18 +7,27 @@ $ ->
 
     phrases = [
         "Nom on some <a>\#{ this.name }</a>, buddy!"
-      , "Break bread at <a>\#{ this.name }</a>, pal."
+      , "Break bread at <a>\#{ this.name }</a>, brother."
       , "Chow down at <a>\#{ this.name }</a>, champ!"
       , "Put away some <a>\#{ this.name }</a>, killer!"
-      , "Cram some <a>\#{ this.name }</a> in your face."
       , "Demolish some <a>\#{ this.name }</a>, bro."
+      , "Try out some <a>\#{ this.name }</a>, lil' guy."
       , "Gobble up some <a>\#{ this.name }</a>, turkey."
+      , "Stuff your face at <a>\#{ this.name }</a>, dude."
+      , "Throw back some <a>\#{ this.name }</a>, boss."
+      , "Chew on some <a>\#{ this.name }</a>, chief."
+      , "Chew on some <a>\#{ this.name }</a>, you animal."
+      , "Chew on some <a>\#{ this.name }</a>, you animal."
     ]
 
     constructor: ->
       mapOpts =
-        zoom: 16
+        zoom: 17
+        draggable: false
+        disableDoubleClickZoom: true
+        disableDefaultUI: true
         mapTypeId: google.maps.MapTypeId.ROADMAP
+        scrollwheel: false
       @map = new google.maps.Map( document.getElementById('map'), mapOpts )
       @service = new google.maps.places.PlacesService @map
       @text = ($ '#text')
@@ -83,4 +92,7 @@ $ ->
       @headline( choice )
 
   nom = new Noms
+
+  ($ 'h2.tagline').css('cursor','pointer').click ->
+    location.reload true
 

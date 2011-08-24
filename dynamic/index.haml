@@ -1,16 +1,19 @@
-.sixteen.columns
-  %h1.remove-bottom{:style => "margin-top: 40px"} Nom Roulette
+%header.sixteen.columns
+  %hgroup
+    %h1.remove-bottom{:style => "margin-top: 40px"} Nom Roulette
+    %h2.tagline Give it a spin
   %hr/
+.sixteen.columns
   %h2#text
     &nbsp;
   %hr/
 .two.columns
   &nbsp;
+.eight.columns
+  #map
 .four.columns.left
   #infoBox
     &nbsp;
-.eight.columns
-  #map
 .two.columns
   &nbsp;
 .sixteen.columns
@@ -24,6 +27,3 @@
         %strong \#{ this.name }
       %li \#{ this.formatted_address }
       %li \#{ this.formatted_phone_number }
-      %li 
-        %a.button{:href => "\#{ this.url }"}
-          Place Page
