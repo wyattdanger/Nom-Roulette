@@ -36,6 +36,8 @@ $ ->
         [@lat, @lng] = [pos.coords.latitude, pos.coords.longitude]
         @location = new google.maps.LatLng @lat, @lng
         @setupClient()
+      , ->
+        textBox.html "Sorry partner. You need to enable HTML5 geolocation to ride this pony."
 
     setupClient: ->
       textBox.html "Finding a place to eat..."
