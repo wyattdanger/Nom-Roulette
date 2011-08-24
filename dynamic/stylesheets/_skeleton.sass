@@ -65,12 +65,6 @@
     .column, .columns
       margin-left: 10px
       margin-right: 10px
-  .column.alpha, .columns.alpha
-    margin-left: 0
-    margin-right: 10px
-  .column.omega, .columns.omega
-    margin-right: 0
-    margin-left: 10px
   .container
     .two.columns
       width: 76px
@@ -96,10 +90,8 @@
   .columns, .column
     margin: 0
   .container
-    .one.column, .two.columns, .three.columns, .four.columns, .five.columns, .six.columns, .seven.columns, .eight.columns, .nine.columns, .ten.columns, .eleven.columns, .twelve.columns, .thirteen.columns, .fourteen.columns, .fifteen.columns, .sixteen.columns, .one-third.column, .two-thirds.column
+    .two.columns, .four.columns, .eight.columns,.ten.columns,.twelve.columns,.sixteen.columns
       width: 300px
-    .offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .offset-by-twelve, .offset-by-thirteen, .offset-by-fourteen, .offset-by-fifteen
-      padding-left: 0
   /* Offsets
 
 /* #Mobile (Landscape)
@@ -113,46 +105,6 @@
   .columns, .column
     margin: 0
   .container
-    .one.column, .two.columns, .three.columns, .four.columns, .five.columns, .six.columns, .seven.columns, .eight.columns, .nine.columns, .ten.columns, .eleven.columns, .twelve.columns, .thirteen.columns, .fourteen.columns, .fifteen.columns, .sixteen.columns, .one-third.column, .two-thirds.column
+    .two.columns, .four.columns, .eight.columns,.ten.columns,.twelve.columns,.sixteen.columns
       width: 420px
-
-/* #Clearing
- *==================================================
-
-/* Self Clearing Goodness
-
-/* Use clearfix class on parent to clear nested columns,
- *or wrap each row of columns in a <div class="row">
-
-.clearfix
-  &:before, &:after
-    content: '\0020'
-    display: block
-    overflow: hidden
-    visibility: hidden
-    width: 0
-    height: 0
-
-.row
-  &:before
-    content: '\0020'
-    display: block
-    overflow: hidden
-    visibility: hidden
-    width: 0
-    height: 0
-  &:after
-    content: '\0020'
-    display: block
-    overflow: hidden
-    visibility: hidden
-    width: 0
-    height: 0
-    clear: both
-
-.clearfix:after
-  clear: both
-
-.row, .clearfix
-  zoom: 1
 

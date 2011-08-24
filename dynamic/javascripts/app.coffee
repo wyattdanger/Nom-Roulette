@@ -17,19 +17,10 @@ $ ->
         scrollwheel: false
 
       mapStyles = [
-        {
-          featureType: "all"
-          stylers: [
-            saturation: -100
-          ]
-        },
-        {
-          featureType: "poi"
-          elementType: "all"
-          stylers: [
-            visibility: "off"
-          ]
-        }
+        featureType: "all"
+        stylers: [
+          saturation: -100
+        ]
       ]
 
       mapType = new google.maps.StyledMapType mapStyles,
