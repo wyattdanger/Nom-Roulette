@@ -38,8 +38,8 @@ $ ->
         @setupClient()
 
     setupClient: ->
+      textBox.html "Finding a place to eat..."
       setTimeout =>
-        textBox.html "Finding a place to eat..."
         setTimeout ->
         window.searchCallbackHandler = @searchCallbackHandler
         @search()
