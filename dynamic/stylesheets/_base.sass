@@ -114,15 +114,9 @@ p
     line-height: 27px
     color: #777
 
-em
-  font-style: italic
-
 strong
   font-weight: bold
   color: #333
-
-small
-  font-size: 80%
 
 /*	Blockquotes
 
@@ -147,194 +141,22 @@ a
   &:hover, &:focus
     color: #000
 
-p a
-  line-height: inherit
-  &:visited
-    line-height: inherit
 
 /* #Lists
  *==================================================
 
-ul, ol
+ul
   margin-bottom: 20px
 
 ul
   list-style: none outside
 
 ul
-  ul li, ol li
+  ul li
     margin-bottom: 6px
 
 li
   line-height: 18px
   margin-bottom: 12px
 
-ul.large li, li p
-  line-height: 21px
 
-/* #Images
- *==================================================
-
-img.scale-with-grid
-  max-width: 100%
-  height: auto
-
-/* #Buttons
- *==================================================
-
-a.button, button
-  background: #eee
-  /* Old browsers
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-  /* FF3.6+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.2)))
-  /* Chrome,Safari4+
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-  /* Chrome10+,Safari5.1+
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-  /* Opera11.10+
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-  /* IE10+
-  background: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-  /* W3C
-  border: 1px solid #aaa
-  border-top: 1px solid #ccc
-  border-left: 1px solid #ccc
-  padding: 4px 12px
-  -moz-border-radius: 3px
-  -webkit-border-radius: 3px
-  border-radius: 3px
-  color: #444
-  display: inline-block
-  font-size: 11px
-  font-weight: bold
-  text-decoration: none
-  text-shadow: 0 1px rgba(255, 255, 255, 0.75)
-  cursor: pointer
-  margin-bottom: 20px
-  line-height: 21px
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
-
-input
-  &[type="submit"], &[type="reset"], &[type="button"]
-    background: #eee
-    /* Old browsers
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-    /* FF3.6+
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.2)))
-    /* Chrome,Safari4+
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-    /* Chrome10+,Safari5.1+
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-    /* Opera11.10+
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-    /* IE10+
-    background: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
-    /* W3C
-    border: 1px solid #aaa
-    border-top: 1px solid #ccc
-    border-left: 1px solid #ccc
-    padding: 4px 12px
-    -moz-border-radius: 3px
-    -webkit-border-radius: 3px
-    border-radius: 3px
-    color: #444
-    display: inline-block
-    font-size: 11px
-    font-weight: bold
-    text-decoration: none
-    text-shadow: 0 1px rgba(255, 255, 255, 0.75)
-    cursor: pointer
-    margin-bottom: 20px
-    line-height: 21px
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
-
-a.button:hover, button:hover
-  color: #222
-  background: #ddd
-  /* Old browsers
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-  /* FF3.6+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(0, 0, 0, 0.3)))
-  /* Chrome,Safari4+
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-  /* Chrome10+,Safari5.1+
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-  /* Opera11.10+
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-  /* IE10+
-  background: linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-  /* W3C
-  border: 1px solid #888
-  border-top: 1px solid #aaa
-  border-left: 1px solid #aaa
-
-input
-  &[type="submit"]:hover, &[type="reset"]:hover, &[type="button"]:hover
-    color: #222
-    background: #ddd
-    /* Old browsers
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-    /* FF3.6+
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(0, 0, 0, 0.3)))
-    /* Chrome,Safari4+
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-    /* Chrome10+,Safari5.1+
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-    /* Opera11.10+
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-    /* IE10+
-    background: linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%)
-    /* W3C
-    border: 1px solid #888
-    border-top: 1px solid #aaa
-    border-left: 1px solid #aaa
-
-a.button:active, button:active
-  border: 1px solid #666
-  background: #ccc
-  /* Old browsers
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-  /* FF3.6+
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.35)), color-stop(100%, rgba(10, 10, 10, 0.4)))
-  /* Chrome,Safari4+
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-  /* Chrome10+,Safari5.1+
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-  /* Opera11.10+
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-  /* IE10+
-  background: linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-  /* W3C
-
-input
-  &[type="submit"]:active, &[type="reset"]:active, &[type="button"]:active
-    border: 1px solid #666
-    background: #ccc
-    /* Old browsers
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-    /* FF3.6+
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.35)), color-stop(100%, rgba(10, 10, 10, 0.4)))
-    /* Chrome,Safari4+
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-    /* Chrome10+,Safari5.1+
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-    /* Opera11.10+
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-    /* IE10+
-    background: linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%)
-    /* W3C
-
-.button.full-width, button.full-width
-  width: 100%
-  padding-left: 0 !important
-  padding-right: 0 !important
-  text-align: center
-
-input
-  &[type="submit"].full-width, &[type="reset"].full-width, &[type="button"].full-width
-    width: 100%
-    padding-left: 0 !important
-    padding-right: 0 !important
-
-    text-align: center
