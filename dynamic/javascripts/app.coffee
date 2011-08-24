@@ -76,7 +76,7 @@ $ ->
         "Nom on some <a>\#{ this.name }</a>, buddy!"
       , "Break bread at <a>\#{ this.name }</a>, brother."
       , "Chow down at <a>\#{ this.name }</a>, champ!"
-      , "Put away some <a>\#{ this.name }</a>, killer!"
+      , "Put away some <a>\#{ this.name }</a>, partner!"
       , "Demolish some <a>\#{ this.name }</a>, bro."
       , "Try out some <a>\#{ this.name }</a>, lil' guy."
       , "Gobble up some <a>\#{ this.name }</a>, turkey."
