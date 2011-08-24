@@ -91,7 +91,7 @@ $ ->
       tagline = ($ 'h2.tagline')
       tagline.css('cursor','pointer').click =>
         tagline.removeClass "spinner-#{ @counter }"
-        ++@counter
+        @counter = (@counter + 1) % 8
         tagline.addClass "spinner-#{ @counter }"
         @map.getLocation()
 
