@@ -74,12 +74,20 @@ h2
   margin-bottom: 4px
   font-family: "IM Fell Great Primer", "Georgia", "Times New Roman", Helvetica, Arial, sans-serif
   &.tagline
+    background: url(../images/give-it-a-spin.png) 0 0 repeat-y
+    height: 30px
+    text-indent: -5000em
     width: 150px
+    display: block
     margin: 0 auto
     position: relative
     font-family: "IM Fell DW Pica SC"
     font-size: 23px
     line-height: 28px
+    -webkit-transition: background 2s ease-out
+    -moz-transition: background 2s ease-out
+    -ms-transition: background 2s ease-out
+    -o-transition: background 2s ease-out
     &::before, &::after
       position: absolute
       content: ''
@@ -104,6 +112,10 @@ h2
     &[href]
       color: #666
       text-decoration: underline
+
+@for $i from 0 through 20
+  h2.spinner-#{$i}
+    background-position: 0px $i*400px
 
 p
   margin: 0 0 20px 0

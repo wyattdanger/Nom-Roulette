@@ -40,6 +40,7 @@ $ ->
     setupClient: ->
       setTimeout =>
         textBox.html "Finding a place to eat..."
+        setTimeout ->
         window.searchCallbackHandler = @searchCallbackHandler
         @search()
       , 1000
@@ -84,7 +85,12 @@ $ ->
       textBox.html "Finding your location..."
       @map = new Map
       @map.getLocation()
-      ($ 'h2.tagline').css('cursor','pointer').click =>
+      @counter = 0
+      tagline = ($ 'h2.tagline')
+      tagline.css('cursor','pointer').click =>
+        tagline.removeClass "spinner-#{ @counter }"
+        ++@counter
+        tagline.addClass "spinner-#{ @counter }"
         @map.getLocation()
 
     selectRandom: ( data ) ->
