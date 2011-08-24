@@ -17,10 +17,19 @@ $ ->
         scrollwheel: false
 
       mapStyles = [
-        featureType: "all"
-        stylers: [
-          saturation: -100
-        ]
+        {
+          featureType: "all"
+          stylers: [
+            saturation: -100
+          ]
+        },
+        {
+          featureType: "poi"
+          elementType: "all"
+          stylers: [
+            visibility: "off"
+          ]
+        }
       ]
 
       mapType = new google.maps.StyledMapType mapStyles,
@@ -43,6 +52,15 @@ $ ->
         window.searchCallbackHandler = @searchCallbackHandler
         @search()
       , 1000
+
+    addMarker: ( info ) ->
+      markerOptions =
+        icon: "images/fork.png"
+        visible: true
+        map: @map
+        position: info.geometry.location
+      @restaurantMarker = new google.maps.Marker markerOptions
+      @map.setCenter info.geometry.location
 
     search: ->
       @service.search
@@ -75,6 +93,8 @@ $ ->
       textBox.html "Finding your location..."
       @map = new Map
       @map.getLocation()
+      ($ 'h2.tagline').css('cursor','pointer').click =>
+        @map.getLocation()
 
     selectRandom: ( data ) ->
       data[ Math.floor(Math.random(data.total)*data.length)]
@@ -97,19 +117,14 @@ $ ->
 
     detailsCallbackHandler: ( info, status) =>
       nom.info info
-      @restaurantMarker = new google.maps.Marker
-        visible: true
-        map: @map.map
-        position: info.geometry.location
-      @map.map.setCenter info.geometry.location
+      @map.addMarker info
 
 
     draw: ( data ) =>
       choice = @selectRandom data
       @headline( choice )
 
+
   nom = new NomsApp
 
-  ($ 'h2.tagline').css('cursor','pointer').click ->
-    location.reload true
 
