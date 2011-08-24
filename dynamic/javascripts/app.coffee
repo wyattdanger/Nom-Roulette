@@ -3,7 +3,58 @@ $ ->
   if ! navigator.geolocation 
     alert 'bro you need geolocation'
 
-  class Noms
+  textBox = ($ '#text')
+  infoBox = ($ "#infoBox")
+
+  class Map
+    constructor: ->
+      mapOpts =
+        zoom: 17
+        draggable: false
+        disableDoubleClickZoom: true
+        disableDefaultUI: true
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+        scrollwheel: false
+
+      mapStyles = [
+        featureType: "all"
+        stylers: [
+          saturation: -100
+        ]
+      ]
+
+      mapType = new google.maps.StyledMapType mapStyles,
+        name: 'nom'
+
+      @map = new google.maps.Map( document.getElementById('map'), mapOpts )
+      @map.mapTypes.set "nom", mapType
+      @map.setMapTypeId "nom"
+      @service = new google.maps.places.PlacesService @map
+
+    getLocation: =>
+      navigator.geolocation.getCurrentPosition ( pos ) =>
+        [@lat, @lng] = [pos.coords.latitude, pos.coords.longitude]
+        @location = new google.maps.LatLng @lat, @lng
+        @setupClient()
+
+    setupClient: ->
+      setTimeout =>
+        textBox.html "Finding a place to eat..."
+        window.searchCallbackHandler = @searchCallbackHandler
+        @search()
+      , 1000
+
+    search: ->
+      @service.search
+        location: @location
+        radius: 3200
+        types: ['restaurant', 'food', 'bar']
+        , searchCallbackHandler
+
+    searchCallbackHandler: ( data, code ) ->
+      nom.draw data
+
+  class NomsApp
 
     phrases = [
         "Nom on some <a>\#{ this.name }</a>, buddy!"
@@ -21,25 +72,9 @@ $ ->
     ]
 
     constructor: ->
-      mapOpts =
-        zoom: 17
-        draggable: false
-        disableDoubleClickZoom: true
-        disableDefaultUI: true
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-        scrollwheel: false
-      @map = new google.maps.Map( document.getElementById('map'), mapOpts )
-      @service = new google.maps.places.PlacesService @map
-      @text = ($ '#text')
-      @infoBox = ($ "#infoBox")
-      @getLocation()
-
-    getLocation: =>
-      @text.text "Finding your location..."
-      navigator.geolocation.getCurrentPosition ( pos ) =>
-        [@lat, @lng] = [pos.coords.latitude, pos.coords.longitude]
-        @location = new google.maps.LatLng @lat, @lng
-        @setupClient()
+      textBox.html "Finding your location..."
+      @map = new Map
+      @map.getLocation()
 
     selectRandom: ( data ) ->
       data[ Math.floor(Math.random(data.total)*data.length)]
@@ -47,51 +82,33 @@ $ ->
     template: 
       `function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}}`
 
-    searchCallbackHandler: ( data, code ) ->
-      nom.draw data
+    info: ( obj ) ->
+      t = @template ($ '#info').text()
+      infoBox.html(t obj)
+      textBox.find('a').attr('href', obj.url )
+
+    headline: ( obj ) ->
+      t = @template @selectRandom(phrases)
+      textBox.html(t obj)
+      window.detailsCallbackHandler = @detailsCallbackHandler
+      @map.service.getDetails
+        reference: obj.reference
+        , detailsCallbackHandler
 
     detailsCallbackHandler: ( info, status) =>
-      console.log 'details', info, status
       nom.info info
       @restaurantMarker = new google.maps.Marker
         visible: true
-        map: @map
+        map: @map.map
         position: info.geometry.location
-      @map.setCenter info.geometry.location
+      @map.map.setCenter info.geometry.location
 
-    setupClient: ->
-      setTimeout =>
-        @text.html "Finding a place to eat..."
-        window.searchCallbackHandler = @searchCallbackHandler
-        @search()
-      , 1000
-
-    search: ->
-      @service.search
-        location: @location
-        radius: 3200
-        types: ['restaurant', 'food', 'bar']
-        , searchCallbackHandler
-
-    info: ( obj ) ->
-      t = @template ($ '#info').text()
-      nom.infoBox.html(t obj)
-      nom.text.find('a').attr('href', obj.url )
-
-    headline: ( obj ) ->
-      console.log obj
-      t = @template @selectRandom(phrases)
-      nom.text.html(t obj)
-      window.detailsCallbackHandler = @detailsCallbackHandler
-      @service.getDetails
-        reference: obj.reference
-        , detailsCallbackHandler
 
     draw: ( data ) =>
       choice = @selectRandom data
       @headline( choice )
 
-  nom = new Noms
+  nom = new NomsApp
 
   ($ 'h2.tagline').css('cursor','pointer').click ->
     location.reload true
