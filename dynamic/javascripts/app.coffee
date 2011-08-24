@@ -47,7 +47,7 @@ $ ->
 
     addMarker: ( info ) ->
       markerOptions =
-        icon: "images/fork.png"
+        icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAtCAMAAACQyRsgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRFAAAATExM9/f3////GVqiygAAAAR0Uk5T////AEAqqfQAAABOSURBVHja7NE7CgAgDAPQJN7/zmqr+OniIjgYKNgHdWiRLAToL/S+iwMsH65C2Hq4ywYKI/RP2UCtL6IKwhQVwJJDIEcZpLnehT1ZgAEAjaUEjHrniXIAAAAASUVORK5CYII="
         visible: true
         map: @map
         position: info.geometry.location
