@@ -57,13 +57,17 @@ $ ->
       @map.setCenter info.geometry.location
 
     search: ->
-      @service.search
-        location: @location
-        radius: 3200
-        types: ['restaurant', 'food', 'bar']
-        , searchCallbackHandler
+      if @data
+        nom.draw @data
+      else
+        @service.search
+          location: @location
+          radius: 3200
+          types: ['restaurant', 'food', 'bar']
+          , searchCallbackHandler
 
     searchCallbackHandler: ( data, code ) ->
+      @data = data
       nom.draw data
 
   class NomsApp
