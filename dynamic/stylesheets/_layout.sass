@@ -28,6 +28,10 @@ body
 footer
   font-size: 80%
 
+h1
+  font-size: 40px
+  margin-top: 30px
+  
 
 /* #Page Styles
  *==================================================
@@ -35,12 +39,21 @@ footer
 /* #Media Queries
  *==================================================
 
+@media only screen and (max-width: 767px)
+  h1
+    font-size: 32px
+
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
 @media only screen and (max-width: 479px)
   #map
     height: 200px
     margin-top: -20px
     margin-bottom: 30px
+
+  h1
+    font-size: 24px
+    margin-bottom: -10px
+    margin-top: 20px
 
   h2
     font-size: 24px
