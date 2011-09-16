@@ -39,12 +39,31 @@ h1
 /* #Media Queries
  *==================================================
 
+@media only screen and (min-width: 768px) and (max-width: 959px)
+  h2
+    b
+  header
+    &::before
+      left: 155px
+    &::after
+      right: 155px
+
+
 @media only screen and (max-width: 767px)
   h1
     font-size: 32px
-
+  h2.tagline b
+    font-size: 12px
   hr
     margin: 20px 0
+  header
+    &::before
+      left: 25px
+      bottom: 33px
+    &::after
+      right: 25px
+      bottom: 33px
+
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
 @media only screen and (max-width: 479px)
@@ -65,16 +84,19 @@ h1
     text-align: center
 
   h2.tagline
-    width: 150px
+    b
+      font-size: 10px
+
+  header
     &::before
-      left: -90px
+      left: -10px
       -webkit-transform: scale(0.7)
       -moz-transform: scale(0.7)
       -ms-transform: scale(0.7)
       -o-transform: scale(0.7)
       transform: scale(0.7)
     &::after
-      right: -90px
+      right: -10px
       -webkit-transform: scale(-.7,.7)
       -moz-transform: scale(-.7,.7)
       -ms-transform: scale(-.7,.7)

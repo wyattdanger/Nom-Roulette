@@ -93,9 +93,9 @@ $ ->
     ]
 
     clickHandler: =>
-      @tagline.removeClass "spinner-#{ @counter }"
-      @counter = (@counter + 1) % 8
-      @tagline.addClass "spinner-#{ @counter }"
+      newguy = @tagline.clone(true)
+      @tagline.before( newguy ).remove()
+      @tagline = newguy
       @map.getLocation()
 
     constructor: ->
