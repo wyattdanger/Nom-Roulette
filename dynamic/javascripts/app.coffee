@@ -63,7 +63,12 @@ $ ->
         @service.search
           location: @location
           radius: 3200
-          types: ['restaurant', 'food', 'bar']
+          types: [
+            'restaurant'
+            'food'
+            'bar'
+            'bakery'
+          ]
           , searchCallbackHandler
 
     searchCallbackHandler: ( data, code ) ->
@@ -87,17 +92,20 @@ $ ->
       , "Chew on some <a>\#{ this.name }</a>, you animal."
     ]
 
+    clickHandler: =>
+      @tagline.removeClass "spinner-#{ @counter }"
+      @counter = (@counter + 1) % 8
+      @tagline.addClass "spinner-#{ @counter }"
+      @map.getLocation()
+
     constructor: ->
       textBox.html "Finding your location..."
       @map = new Map
       @map.getLocation()
       @counter = 0
-      tagline = ($ 'h2.tagline')
-      tagline.css('cursor','pointer').click =>
-        tagline.removeClass "spinner-#{ @counter }"
-        @counter = (@counter + 1) % 8
-        tagline.addClass "spinner-#{ @counter }"
-        @map.getLocation()
+      @tagline = ($ 'h2.tagline')
+      @tagline.css('cursor','pointer').click @clickHandler
+      ($ 'h1').click @clickHandler
 
     selectRandom: ( data ) ->
       data[ Math.floor(Math.random(data.total)*data.length)]
