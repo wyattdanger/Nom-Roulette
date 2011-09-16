@@ -78,18 +78,18 @@ $ ->
   class NomsApp
 
     phrases = [
-        "Nom on some <a>\#{ this.name }</a>, buddy!"
-      , "Break bread at <a>\#{ this.name }</a>, brother."
-      , "Chow down at <a>\#{ this.name }</a>, champ!"
-      , "Put away some <a>\#{ this.name }</a>, partner!"
-      , "Demolish some <a>\#{ this.name }</a>, bro."
-      , "Try out some <a>\#{ this.name }</a>, lil' guy."
-      , "Gobble up some <a>\#{ this.name }</a>, turkey."
-      , "Stuff your face at <a>\#{ this.name }</a>, dude."
-      , "Throw back some <a>\#{ this.name }</a>, boss."
-      , "Chew on some <a>\#{ this.name }</a>, chief."
-      , "Chew on some <a>\#{ this.name }</a>, you animal."
-      , "Chew on some <a>\#{ this.name }</a>, you animal."
+      "Nom on some <a>\#{ this.name }</a>, buddy!"
+      "Break bread at <a>\#{ this.name }</a>, brother."
+      "Chow down at <a>\#{ this.name }</a>, champ!"
+      "Put away some <a>\#{ this.name }</a>, partner!"
+      "Demolish some <a>\#{ this.name }</a>, bro."
+      "Try out some <a>\#{ this.name }</a>, lil' guy."
+      "Gobble up some <a>\#{ this.name }</a>, turkey."
+      "Stuff your face at <a>\#{ this.name }</a>, dude."
+      "Throw back some <a>\#{ this.name }</a>, boss."
+      "Chew on some <a>\#{ this.name }</a>, chief."
+      "Chew on some <a>\#{ this.name }</a>, you animal."
+      "Chew on some <a>\#{ this.name }</a>, you animal."
     ]
 
     clickHandler: =>
